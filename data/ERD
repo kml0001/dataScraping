@@ -1,0 +1,14 @@
+digraph {
+	node [shape=record]
+	Authors [label="{ Authors | <AuthorID>AuthorID: int | <FirstName>FirstName: varchar | <LastName>LastName: varchar | }"]
+	Books [label="{ Books | <BookID>BookID: int | <Title>Title: varchar | <ISBN>ISBN: varchar | <PublicationDate>PublicationDate: date | <Author1ID>Author1ID: int | <Author2ID>Author2ID: int | <Author3ID>Author3ID: int | }"]
+	Books:Author1ID -> Authors:<AuthorID>
+	Members [label="{ Members | <MemberID>MemberID: int | <FirstName>FirstName: varchar | <LastName>LastName: varchar | <Email>Email: varchar | <PhoneNumber>PhoneNumber: varchar | }"]
+	Categories [label="{ Categories | <CategoryID>CategoryID: int | <CategoryName>CategoryName: varchar | }"]
+	BooksCategories [label="{ BooksCategories | <BookCategoryID>BookCategoryID: int | <BookID>BookID: int | <CategoryID>CategoryID: int | }"]
+	BooksCategories:BookID -> Books:<BookID>
+	BooksCategories:CategoryID -> Categories:<CategoryID>
+	Borrowings [label="{ Borrowings | <BorrowingID>BorrowingID: int | <MemberID>MemberID: int | <BookID>BookID: int | <BorrowDate>BorrowDate: date | <ReturnDate>ReturnDate: date | }"]
+	Borrowings:BookID -> Books:<BookID>
+	Borrowings:MemberID -> Members:<MemberID>
+}

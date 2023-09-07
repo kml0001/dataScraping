@@ -1,0 +1,42 @@
+Table: Authors
+  Column: AuthorID - Type: int
+  Column: FirstName - Type: varchar
+  Column: LastName - Type: varchar
+
+Table: Books
+  Column: BookID - Type: int
+  Column: Title - Type: varchar
+  Column: ISBN - Type: varchar
+  Column: PublicationDate - Type: date
+  Column: Author1ID - Type: int
+  Column: Author2ID - Type: int
+  Column: Author3ID - Type: int
+  Foreign Key: FK__Books__Author1ID__398D8EEE - Table Name: Books - Column Name: Author1ID - Referenced Table Name: Authors - Referenced Column Name: AuthorID
+
+Table: Members
+  Column: MemberID - Type: int
+  Column: FirstName - Type: varchar
+  Column: LastName - Type: varchar
+  Column: Email - Type: varchar
+  Column: PhoneNumber - Type: varchar
+
+Table: Categories
+  Column: CategoryID - Type: int
+  Column: CategoryName - Type: varchar
+
+Table: BooksCategories
+  Column: BookCategoryID - Type: int
+  Column: BookID - Type: int
+  Column: CategoryID - Type: int
+  Foreign Key: FK__BooksCate__BookI__4222D4EF - Table Name: BooksCategories - Column Name: BookID - Referenced Table Name: Books - Referenced Column Name: BookID
+  Foreign Key: FK__BooksCate__Categ__4316F928 - Table Name: BooksCategories - Column Name: CategoryID - Referenced Table Name: Categories - Referenced Column Name: CategoryID
+
+Table: Borrowings
+  Column: BorrowingID - Type: int
+  Column: MemberID - Type: int
+  Column: BookID - Type: int
+  Column: BorrowDate - Type: date
+  Column: ReturnDate - Type: date
+  Foreign Key: FK__Borrowing__BookI__46E78A0C - Table Name: Borrowings - Column Name: BookID - Referenced Table Name: Books - Referenced Column Name: BookID
+  Foreign Key: FK__Borrowing__Membe__45F365D3 - Table Name: Borrowings - Column Name: MemberID - Referenced Table Name: Members - Referenced Column Name: MemberID
+

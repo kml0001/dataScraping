@@ -1,0 +1,160 @@
+{
+    "Authors": {
+        "attributes": [
+            [
+                "AuthorID",
+                "int"
+            ],
+            [
+                "FirstName",
+                "varchar"
+            ],
+            [
+                "LastName",
+                "varchar"
+            ]
+        ],
+        "relations": []
+    },
+    "Books": {
+        "attributes": [
+            [
+                "BookID",
+                "int"
+            ],
+            [
+                "Title",
+                "varchar"
+            ],
+            [
+                "ISBN",
+                "varchar"
+            ],
+            [
+                "PublicationDate",
+                "date"
+            ],
+            [
+                "Author1ID",
+                "int"
+            ],
+            [
+                "Author2ID",
+                "int"
+            ],
+            [
+                "Author3ID",
+                "int"
+            ]
+        ],
+        "relations": [
+            [
+                "Author1ID",
+                "Authors",
+                "AuthorID"
+            ]
+        ]
+    },
+    "Members": {
+        "attributes": [
+            [
+                "MemberID",
+                "int"
+            ],
+            [
+                "FirstName",
+                "varchar"
+            ],
+            [
+                "LastName",
+                "varchar"
+            ],
+            [
+                "Email",
+                "varchar"
+            ],
+            [
+                "PhoneNumber",
+                "varchar"
+            ]
+        ],
+        "relations": []
+    },
+    "Categories": {
+        "attributes": [
+            [
+                "CategoryID",
+                "int"
+            ],
+            [
+                "CategoryName",
+                "varchar"
+            ]
+        ],
+        "relations": []
+    },
+    "BooksCategories": {
+        "attributes": [
+            [
+                "BookCategoryID",
+                "int"
+            ],
+            [
+                "BookID",
+                "int"
+            ],
+            [
+                "CategoryID",
+                "int"
+            ]
+        ],
+        "relations": [
+            [
+                "BookID",
+                "Books",
+                "BookID"
+            ],
+            [
+                "CategoryID",
+                "Categories",
+                "CategoryID"
+            ]
+        ]
+    },
+    "Borrowings": {
+        "attributes": [
+            [
+                "BorrowingID",
+                "int"
+            ],
+            [
+                "MemberID",
+                "int"
+            ],
+            [
+                "BookID",
+                "int"
+            ],
+            [
+                "BorrowDate",
+                "date"
+            ],
+            [
+                "ReturnDate",
+                "date"
+            ]
+        ],
+        "relations": [
+            [
+                "BookID",
+                "Books",
+                "BookID"
+            ],
+            [
+                "MemberID",
+                "Members",
+                "MemberID"
+            ]
+        ]
+    }
+}
